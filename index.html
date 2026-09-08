@@ -2,327 +2,1016 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Portfolio of K Tarun, a Full Stack Developer and AI enthusiast building modern web applications and intelligent software solutions."
+  >
+
+  <meta name="theme-color" content="#07080e">
+
+  <title>K Tarun | Full Stack Developer</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<canvas id="particles"></canvas>
+  <canvas id="particles" aria-hidden="true"></canvas>
 
-<header class="navbar">
-  <div class="brand">
-    <img src="profile.jpg" alt="Tarun" class="logo-img">
-    <div>
-      <h1>K Tarun</h1>
-      <p>Web Developer</p>
-    </div>
-  </div>
+  <!-- NAVIGATION -->
 
-  <button class="nav-toggle" aria-label="Toggle navigation">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  <header class="navbar">
 
-  <nav class="nav-menu">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <a href="#home" class="brand" aria-label="K Tarun Home">
 
-<main>
+      <img
+        src="profile.jpg"
+        alt="K Tarun"
+        class="logo-img"
+      >
 
-  <section id="home" class="hero">
-    <div class="hero-content" data-aos="fade-up">
-      <p class="eyebrow">Hello, I am K Tarun</p>
-      <h1>Full Stack Developer</h1>
-      <h2>I am <span id="typing"></span></h2>
-      <p>I build intelligent systems like face recognition attendance using Flask, OpenCV, and Firebase, along with modern responsive web applications.</p>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Hire Me</a>
-        <a class="btn btn-secondary" href="resume.pdf" download>Download Resume</a>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="about" class="section" data-aos="fade-up">
-    <div class="section-heading">
-      <h2>About Me</h2>
-      <p>I create modern digital experiences using code, design, and a passion for solving real problems.</p>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-card" data-aos="fade-right">
-        <h3>Who I am</h3>
-        <p>I specialize in full stack development and AI integration, focusing on high performance websites and intuitive interfaces.</p>
-
-        <ul>
-          <li>Frontend: HTML, CSS, JavaScript, React</li>
-          <li>Backend: Python (Flask), Java</li>
-          <li>AI/ML: OpenCV, face recognition</li>
-        </ul>
+      <div>
+        <h1>K Tarun</h1>
+        <p>Full Stack Developer</p>
       </div>
 
-      <div class="about-stats" data-aos="fade-left">
-        <div>
-          <strong>1+</strong>
-          <span>Years Experience</span>
-        </div>
+    </a>
 
-        <div>
-          <strong>5+</strong>
-          <span>Projects Completed</span>
-        </div>
+    <button
+      class="nav-toggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-        <div>
-          <strong>5</strong>
-          <span>Technologies</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    <nav
+      class="nav-menu"
+      id="primary-navigation"
+    >
 
+      <ul>
 
-  <!-- EDUCATION SECTION -->
-  <section id="education" class="section" data-aos="fade-up">
-    <div class="section-heading">
-      <h2>Education</h2>
-      <p>My academic background and educational journey.</p>
-    </div>
+        <li>
+          <a href="#home">Home</a>
+        </li>
 
-    <div class="timeline">
+        <li>
+          <a href="#about">About</a>
+        </li>
 
-      <div class="timeline-item" data-aos="fade-right">
-        <span class="timeline-date">2025 - 2027</span>
-        <h3>Master of Computer Applications (MCA)</h3>
-        <p>GITAM University</p>
-      </div>
+        <li>
+          <a href="#education">Education</a>
+        </li>
 
-      <div class="timeline-item" data-aos="fade-left">
-        <span class="timeline-date">2022 - 2025</span>
-        <h3>Bachelor of Computer Applications (BCA)</h3>
-        <p>JNRM</p>
-      </div>
+        <li>
+          <a href="#skills">Skills</a>
+        </li>
 
-    </div>
-  </section>
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
 
+        <li>
+          <a href="#experience">Experience</a>
+        </li>
 
-  <section id="skills" class="section" data-aos="fade-up">
-    <div class="section-heading">
-      <h2>Skills</h2>
-      <p>Tools and technologies I use to bring ideas to life.</p>
-    </div>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
 
-    <div class="skills-grid">
+      </ul>
 
-      <div class="skill-card" data-aos="zoom-in">
-        <h3>JavaScript</h3>
-        <div class="bar">
-          <span style="width: 90%"></span>
-        </div>
-      </div>
+    </nav>
 
-      <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
-        <h3>Python</h3>
-        <div class="bar">
-          <span style="width: 85%"></span>
-        </div>
-      </div>
-
-      <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
-        <h3>Java</h3>
-        <div class="bar">
-          <span style="width: 80%"></span>
-        </div>
-      </div>
-
-      <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
-        <h3>React</h3>
-        <div class="bar">
-          <span style="width: 75%"></span>
-        </div>
-      </div>
-
-      <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
-        <h3>Flask</h3>
-        <div class="bar">
-          <span style="width: 70%"></span>
-        </div>
-      </div>
-
-    </div>
-  </section>
+  </header>
 
 
-  <section id="projects" class="section" data-aos="fade-up">
-    <div class="section-heading">
-      <h2>Projects</h2>
-      <p>A few examples of the work I've delivered.</p>
-    </div>
+  <main>
 
-    <div class="projects-grid">
+    <!-- HERO -->
 
-      <article class="project-card" data-tilt>
-        <h3>Face Recognition System</h3>
-        <p>Real-time face detection and identification using OpenCV, Flask, and Firebase.</p>
-        <div class="project-actions">
-          <a href="https://github.com/Tarun-ux103/Face-Recognition-Attendance-System" class="btn btn-outline">View Code</a>
-          <a href="https://face-recognition-demo-one.vercel.app/" class="btn btn-outline">Live Demo</a>
-        </div>
-      </article>
+    <section id="home" class="hero">
 
-      <article class="project-card" data-tilt>
-        <h3>Portfolio Website</h3>
-        <p>Responsive portfolio with animated UI, scrolling effects, and modern layout.</p>
-        <div class="project-actions">
-          <a href="https://github.com/Tarun-ux103/tarunux103.github.io.git" class="btn btn-outline">View Code</a>
-          <a href="#" class="btn btn-outline">Live Demo</a>
-        </div>
-      </article>
+      <div
+        class="hero-content"
+        data-aos="fade-up"
+      >
 
-      <article class="project-card" data-tilt>
-        <h3>CPU Scheduling System</h3>
-        <p>
-          A menu-driven C++ application that simulates CPU process scheduling
-          using FCFS, SJF, Priority Scheduling, and Round Robin algorithms.
+        <p class="eyebrow">
+          Hello, I am K Tarun
         </p>
-        <div class="project-actions">
-          <a href="#" class="btn btn-outline">View Details</a>
-          <a href="#" class="btn btn-outline">View Project</a>
-        </div>
-      </article>
 
-      <article class="project-card" data-tilt>
-        <h3>Console To-Do List Application</h3>
+        <h1>
+          Full Stack Developer
+        </h1>
+
+        <h2>
+          I am <span id="typing"></span>
+        </h2>
+
         <p>
-          A Python-based task management application with features to add, view,
-          update, complete, and delete tasks using JSON file storage.
+          I build modern web applications and intelligent software solutions
+          by combining full-stack development, AI integration, and practical
+          problem-solving.
         </p>
-        <div class="project-actions">
-          <a href="#" class="btn btn-outline">View Details</a>
-          <a href="#" class="btn btn-outline">View Project</a>
-        </div>
-      </article>
 
-      <article class="project-card" data-tilt>
-        <h3>Inventory Management System</h3>
-        <p>
-          A Python-based inventory management system with CRUD operations, stock
-          tracking, sales management, low-stock alerts, and JSON file storage.
-        </p>
-        <div class="project-actions">
-          <a href="#" class="btn btn-outline">View Details</a>
-          <a href="#" class="btn btn-outline">View Project</a>
-        </div>
-      </article>
+        <div class="hero-actions">
 
-    </div>
-  </section>
-
-
-  <!-- EXPERIENCE SECTION -->
-  <section id="experience" class="section" data-aos="fade-up">
-    <div class="section-heading">
-      <h2>Experience</h2>
-      <p>My professional work experience and responsibilities.</p>
-    </div>
-
-    <div class="timeline">
-
-      <div class="timeline-item" data-aos="fade-right">
-        <span class="timeline-date">Feb 2024 - Apr 2025</span>
-        <h3>E-Procurement Executive</h3>
-        <h4>Dolphin Agency</h4>
-        <p>
-          Identified and applied for relevant tenders through GeM,
-          e-procurement platforms, and defence portals. Managed tender
-          applications and supported the overall e-procurement process.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <section id="contact" class="section" data-aos="fade-up">
-    <div class="section-heading">
-      <h2>Contact</h2>
-      <p>Let's build something great together.</p>
-    </div>
-
-    <div class="contact-grid">
-
-      <form id="contact-form">
-        <input type="text" id="name" placeholder="Name" required>
-
-        <input type="email" id="email" placeholder="Email" required>
-
-        <textarea id="message" rows="6" placeholder="Message" required></textarea>
-
-        <button class="btn btn-primary" type="submit">Send Message</button>
-
-        <p id="form-status" class="form-status"></p>
-      </form>
-
-
-      <div class="contact-info" data-aos="fade-left">
-
-        <div>
-          <strong>Email</strong>
-          <a href="mailto:ktarun1035@gmail.com?subject=Portfolio%20Contact&body=Hello%20Tarun,%20I%20visited%20your%20portfolio...">
-            ktarun1035@gmail.com
+          <a
+            class="btn btn-primary"
+            href="#projects"
+          >
+            View My Work
           </a>
-        </div>
 
-        <div>
-          <strong>LinkedIn</strong>
-          <a href="https://www.linkedin.com/in/tarun-k-05no2002/" target="_blank" rel="noopener noreferrer">
-            Tarun K
+          <a
+            class="btn btn-secondary"
+            href="resume.pdf"
+            download
+          >
+            Download Resume
           </a>
-        </div>
 
-        <div>
-          <strong>GitHub</strong>
-          <a href="https://github.com/Tarun-ux103" target="_blank" rel="noopener noreferrer">
-            Tarun-ux103
+          <a
+            class="btn btn-outline"
+            href="https://github.com/Tarun-ux103"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
           </a>
-        </div>
 
-        <div>
-          <strong>Location</strong>
-          <p>Sri Vijaya Puram, Andaman Nicobar Islands, India</p>
-        </div>
-
-        <div>
-          <strong>Freelance</strong>
-          <p>Available</p>
         </div>
 
       </div>
 
-    </div>
-  </section>
-
-</main>
+    </section>
 
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-<script src="script.js"></script>
+    <!-- ABOUT -->
+
+    <section
+      id="about"
+      class="section"
+      data-aos="fade-up"
+    >
+
+      <div class="section-heading">
+
+        <h2>About Me</h2>
+
+        <p>
+          I enjoy building practical applications, exploring AI-powered
+          solutions, and solving real-world problems through technology.
+        </p>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div
+          class="about-card"
+          data-aos="fade-right"
+        >
+
+          <h3>Who I Am</h3>
+
+          <p>
+            I am a Full Stack Developer and AI enthusiast with an interest in
+            building responsive web applications and intelligent software
+            solutions. I enjoy learning new technologies and turning ideas
+            into functional projects.
+          </p>
+
+          <ul>
+
+            <li>
+              <strong>Frontend:</strong>
+              HTML, CSS, JavaScript, React
+            </li>
+
+            <li>
+              <strong>Backend:</strong>
+              Python, Flask, Java
+            </li>
+
+            <li>
+              <strong>Databases:</strong>
+              SQLAlchemy and database-driven applications
+            </li>
+
+            <li>
+              <strong>AI Integration:</strong>
+              LLM-powered applications, OpenCV, Face Recognition
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div
+          class="about-stats"
+          data-aos="fade-left"
+        >
+
+          <div>
+
+            <strong>6+</strong>
+
+            <span>
+              Projects Built
+            </span>
+
+          </div>
+
+          <div>
+
+            <strong>AI</strong>
+
+            <span>
+              Integrated Projects
+            </span>
+
+          </div>
+
+          <div>
+
+            <strong>Full Stack</strong>
+
+            <span>
+              Development Focus
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section
+      id="education"
+      class="section"
+      data-aos="fade-up"
+    >
+
+      <div class="section-heading">
+
+        <h2>Education</h2>
+
+        <p>
+          My academic background and educational journey.
+        </p>
+
+      </div>
+
+
+      <div class="timeline">
+
+        <article
+          class="timeline-item"
+          data-aos="fade-right"
+        >
+
+          <span class="timeline-date">
+            2025 - 2027
+          </span>
+
+          <h3>
+            Master of Computer Applications (MCA)
+          </h3>
+
+          <p>
+            GITAM University
+          </p>
+
+        </article>
+
+
+        <article
+          class="timeline-item"
+          data-aos="fade-left"
+        >
+
+          <span class="timeline-date">
+            2022 - 2025
+          </span>
+
+          <h3>
+            Bachelor of Computer Applications (BCA)
+          </h3>
+
+          <p>
+            JNRM
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section
+      id="skills"
+      class="section"
+      data-aos="fade-up"
+    >
+
+      <div class="section-heading">
+
+        <h2>Skills</h2>
+
+        <p>
+          Technologies and tools I use to build applications.
+        </p>
+
+      </div>
+
+
+      <div class="skills-grid">
+
+        <article
+          class="skill-card"
+          data-aos="zoom-in"
+        >
+
+          <h3>Frontend</h3>
+
+          <div class="skill-tags">
+
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="skill-card"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+
+          <h3>Backend</h3>
+
+          <div class="skill-tags">
+
+            <span>Python</span>
+            <span>Flask</span>
+            <span>Java</span>
+            <span>REST APIs</span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="skill-card"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+
+          <h3>AI & Intelligent Systems</h3>
+
+          <div class="skill-tags">
+
+            <span>LLM Integration</span>
+            <span>OpenCV</span>
+            <span>Face Recognition</span>
+            <span>Prompt Engineering</span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="skill-card"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        >
+
+          <h3>Database & Tools</h3>
+
+          <div class="skill-tags">
+
+            <span>SQLAlchemy</span>
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>Vercel</span>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section
+      id="projects"
+      class="section"
+      data-aos="fade-up"
+    >
+
+      <div class="section-heading">
+
+        <h2>Projects</h2>
+
+        <p>
+          A selection of projects demonstrating my development and
+          problem-solving skills.
+        </p>
+
+      </div>
+
+
+      <!-- FEATURED PROJECT -->
+
+      <div class="featured-project">
+
+        <article
+          class="project-card featured-card"
+          data-tilt
+        >
+
+          <div class="featured-label">
+            Featured Project
+          </div>
+
+          <h3>
+            BugMind AI
+          </h3>
+
+          <p>
+            An AI-powered bug tracking and issue management system designed to
+            help users manage software issues and interact with an intelligent
+            LLM assistant.
+          </p>
+
+          <div class="project-tech">
+
+            <span>Python</span>
+            <span>Flask</span>
+            <span>SQLAlchemy</span>
+            <span>LLM</span>
+            <span>JavaScript</span>
+
+          </div>
+
+          <div class="project-actions">
+
+            <a
+              href="https://github.com/Tarun-ux103/ai-bug-tracker"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code
+            </a>
+
+            <a
+              href="https://ai-bug-tracker-two.vercel.app/dashboard"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <!-- OTHER PROJECTS -->
+
+      <div class="projects-grid">
+
+
+        <article class="project-card" data-tilt>
+
+          <h3>
+            Face Recognition System
+          </h3>
+
+          <p>
+            A real-time face recognition attendance system using OpenCV,
+            Flask, and Firebase.
+          </p>
+
+          <div class="project-tech">
+
+            <span>Python</span>
+            <span>Flask</span>
+            <span>OpenCV</span>
+            <span>Firebase</span>
+
+          </div>
+
+          <div class="project-actions">
+
+            <a
+              href="https://github.com/Tarun-ux103/Face-Recognition-Attendance-System"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code
+            </a>
+
+            <a
+              href="https://face-recognition-demo-one.vercel.app/"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="project-card" data-tilt>
+
+          <h3>
+            Portfolio Website
+          </h3>
+
+          <p>
+            A responsive developer portfolio featuring animations, interactive
+            effects, and a modern dark-themed user interface.
+          </p>
+
+          <div class="project-tech">
+
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+
+          </div>
+
+          <div class="project-actions">
+
+            <a
+              href="https://github.com/Tarun-ux103/tarunux103.github.io"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code
+            </a>
+
+            <!-- KEEP THIS BUTTON FOR YOUR FUTURE LINK -->
+
+            <a
+              href="#"
+              class="btn btn-outline"
+            >
+              Live Demo
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="project-card" data-tilt>
+
+          <h3>
+            CPU Scheduling System
+          </h3>
+
+          <p>
+            A menu-driven C++ application that simulates CPU process scheduling
+            using FCFS, SJF, Priority Scheduling, and Round Robin algorithms.
+          </p>
+
+          <div class="project-tech">
+
+            <span>C++</span>
+            <span>FCFS</span>
+            <span>SJF</span>
+            <span>Round Robin</span>
+
+          </div>
+
+          <div class="project-actions">
+
+            <a href="#" class="btn btn-outline">
+              View Details
+            </a>
+
+            <a href="#" class="btn btn-outline">
+              View Project
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="project-card" data-tilt>
+
+          <h3>
+            Console To-Do List Application
+          </h3>
+
+          <p>
+            A Python-based task management application that allows users to
+            add, update, complete, and delete tasks using JSON file storage.
+          </p>
+
+          <div class="project-tech">
+
+            <span>Python</span>
+            <span>JSON</span>
+            <span>CRUD</span>
+
+          </div>
+
+          <div class="project-actions">
+
+            <a href="#" class="btn btn-outline">
+              View Details
+            </a>
+
+            <a href="#" class="btn btn-outline">
+              View Project
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="project-card" data-tilt>
+
+          <h3>
+            Inventory Management System
+          </h3>
+
+          <p>
+            A Python-based inventory management system featuring CRUD
+            operations, stock tracking, sales management, and low-stock alerts.
+          </p>
+
+          <div class="project-tech">
+
+            <span>Python</span>
+            <span>JSON</span>
+            <span>CRUD</span>
+            <span>File Storage</span>
+
+          </div>
+
+          <div class="project-actions">
+
+            <a href="#" class="btn btn-outline">
+              View Details
+            </a>
+
+            <a href="#" class="btn btn-outline">
+              View Project
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+
+    <section
+      id="experience"
+      class="section"
+      data-aos="fade-up"
+    >
+
+      <div class="section-heading">
+
+        <h2>Experience</h2>
+
+        <p>
+          My professional work experience and responsibilities.
+        </p>
+
+      </div>
+
+
+      <div class="timeline">
+
+        <article
+          class="timeline-item"
+          data-aos="fade-right"
+        >
+
+          <span class="timeline-date">
+            Feb 2024 - Apr 2025
+          </span>
+
+          <h3>
+            E-Procurement Executive
+          </h3>
+
+          <h4>
+            Dolphin Agency
+          </h4>
+
+          <p>
+            Identified and applied for relevant tenders through GeM,
+            e-procurement platforms, and defence portals. Managed tender
+            applications and supported the overall e-procurement process.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CURRENT WORK -->
+
+    <section
+      id="current-work"
+      class="section current-work-section"
+      data-aos="fade-up"
+    >
+
+      <div class="current-work-card">
+
+        <span class="current-work-label">
+          Currently Working On
+        </span>
+
+        <h2>
+          AI-Powered Software Solutions
+        </h2>
+
+        <p>
+          I am currently expanding my skills in full-stack development and
+          AI integration by building practical applications such as BugMind AI.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section
+      id="contact"
+      class="section"
+      data-aos="fade-up"
+    >
+
+      <div class="section-heading">
+
+        <h2>Contact</h2>
+
+        <p>
+          Have a project or opportunity in mind? Let's connect.
+        </p>
+
+      </div>
+
+
+      <div class="contact-grid">
+
+
+        <form id="contact-form">
+
+          <label for="name">
+            Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="from_name"
+            placeholder="Your name"
+            required
+          >
+
+
+          <label for="email">
+            Email
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            name="from_email"
+            placeholder="Your email"
+            required
+          >
+
+
+          <label for="subject">
+            Subject
+          </label>
+
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="What would you like to discuss?"
+            required
+          >
+
+
+          <label for="message">
+            Message
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Write your message..."
+            required
+          ></textarea>
+
+
+          <button
+            class="btn btn-primary"
+            type="submit"
+            id="submit-button"
+          >
+            Send Message
+          </button>
+
+
+          <p
+            id="form-status"
+            class="form-status"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+
+        <div
+          class="contact-info"
+          data-aos="fade-left"
+        >
+
+          <div>
+
+            <strong>Email</strong>
+
+            <a
+              href="mailto:ktarun1035@gmail.com"
+            >
+              ktarun1035@gmail.com
+            </a>
+
+          </div>
+
+
+          <div>
+
+            <strong>LinkedIn</strong>
+
+            <a
+              href="https://www.linkedin.com/in/tarun-k-05no2002/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tarun K
+            </a>
+
+          </div>
+
+
+          <div>
+
+            <strong>GitHub</strong>
+
+            <a
+              href="https://github.com/Tarun-ux103"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tarun-ux103
+            </a>
+
+          </div>
+
+
+          <div>
+
+            <strong>Location</strong>
+
+            <p>
+              Sri Vijaya Puram, Andaman and Nicobar Islands, India
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <strong>Availability</strong>
+
+            <p>
+              Open to opportunities and collaborations.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <p>
+      © <span id="current-year"></span>
+      K Tarun. Built with HTML, CSS and JavaScript.
+    </p>
+
+  </footer>
+
+
+  <!-- EXTERNAL SCRIPTS -->
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
+  <!-- EMAILJS -->
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"
+  ></script>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
