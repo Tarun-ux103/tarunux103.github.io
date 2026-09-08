@@ -1,169 +1,735 @@
-// WAIT UNTIL DOM LOADS (VERY IMPORTANT)
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  // ================= AOS =================
-  if (typeof AOS !== "undefined") {
+  /* =========================================================
+     CONFIGURATION
+     Replace these EmailJS placeholders after creating EmailJS
+  ========================================================= */
+
+  const EMAILJS_PUBLIC_KEY = "YOUR_EMAILJS_PUBLIC_KEY";
+
+  const EMAILJS_SERVICE_ID = "YOUR_EMAILJS_SERVICE_ID";
+
+  const EMAILJS_TEMPLATE_ID = "YOUR_EMAILJS_TEMPLATE_ID";
+
+
+  /* =========================================================
+     AOS ANIMATIONS
+  ========================================================= */
+
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+
+  if (
+    typeof AOS !== "undefined" &&
+    !prefersReducedMotion
+  ) {
+
     AOS.init({
-      duration: 900,
-      easing: 'ease-out-cubic',
+      duration: 800,
+      easing: "ease-out-cubic",
       once: true,
+      offset: 80
     });
+
   }
 
-  // ================= TYPING EFFECT =================
-  const typingElement = document.getElementById('typing');
+
+  /* =========================================================
+     TYPING EFFECT
+  ========================================================= */
+
+  const typingElement =
+    document.getElementById("typing");
+
 
   if (typingElement) {
-    const phrases = ['a Developer', 'an AI Enthusiast', 'a Problem Solver', 'a Creator'];
-    let phraseIndex = 0;
-    let letterIndex = 0;
-    let deleting = false;
 
-    function typeWriter() {
-      const currentText = phrases[phraseIndex];
-      const updateText = deleting
-        ? currentText.substring(0, letterIndex - 1)
-        : currentText.substring(0, letterIndex + 1);
+    const phrases = [
+      "a Developer",
+      "an AI Enthusiast",
+      "a Problem Solver",
+      "a Creator"
+    ];
 
-      typingElement.textContent = updateText;
 
-      if (!deleting && letterIndex < currentText.length) {
-        letterIndex++;
-        setTimeout(typeWriter, 90);
-      } else if (deleting && letterIndex > 0) {
-        letterIndex--;
-        setTimeout(typeWriter, 50);
-      } else {
-        deleting = !deleting;
+    if (prefersReducedMotion) {
+
+      typingElement.textContent = phrases[0];
+
+    } else {
+
+      let phraseIndex = 0;
+      let letterIndex = 0;
+      let deleting = false;
+
+
+      function typeWriter() {
+
+        const currentText =
+          phrases[phraseIndex];
+
+
         if (!deleting) {
-          phraseIndex = (phraseIndex + 1) % phrases.length;
+
+          letterIndex++;
+
+          typingElement.textContent =
+            currentText.substring(
+              0,
+              letterIndex
+            );
+
+
+          if (
+            letterIndex === currentText.length
+          ) {
+
+            deleting = true;
+
+            setTimeout(
+              typeWriter,
+              1600
+            );
+
+            return;
+          }
+
+        } else {
+
+          letterIndex--;
+
+          typingElement.textContent =
+            currentText.substring(
+              0,
+              letterIndex
+            );
+
+
+          if (letterIndex === 0) {
+
+            deleting = false;
+
+            phraseIndex =
+              (phraseIndex + 1) %
+              phrases.length;
+          }
+
         }
-        setTimeout(typeWriter, deleting ? 400 : 1400);
+
+
+        const typingSpeed =
+          deleting ? 55 : 100;
+
+
+        setTimeout(
+          typeWriter,
+          typingSpeed
+        );
+
       }
+
+
+      typeWriter();
+
     }
 
-    typeWriter();
   }
 
-  // ================= NAV MENU TOGGLE =================
-  const menuButton = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
 
-  if (menuButton && navMenu) {
-    menuButton.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-    });
+  /* =========================================================
+     MOBILE NAVIGATION
+  ========================================================= */
+
+  const navToggle =
+    document.querySelector(".nav-toggle");
+
+
+  const navMenu =
+    document.querySelector(".nav-menu");
+
+
+  const navLinks =
+    document.querySelectorAll(
+      ".nav-menu a"
+    );
+
+
+  function closeNavigation() {
+
+    if (!navToggle || !navMenu) {
+      return;
+    }
+
+
+    navMenu.classList.remove("open");
+
+    navToggle.classList.remove("active");
+
+    navToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
   }
 
-  // CLOSE MENU ON LINK CLICK (MOBILE)
-  const navLinks = document.querySelectorAll('.nav-menu a');
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-    });
-  });
+  if (navToggle && navMenu) {
 
-  // ================= SCROLL ACTIVE LINK =================
-  window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollY = window.pageYOffset;
+    navToggle.addEventListener(
+      "click",
+      () => {
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
+        const isOpen =
+          navMenu.classList.toggle("open");
 
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
+
+        navToggle.classList.toggle(
+          "active",
+          isOpen
+        );
+
+
+        navToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
       }
+    );
+
+
+    navLinks.forEach((link) => {
+
+      link.addEventListener(
+        "click",
+        closeNavigation
+      );
+
     });
-  });
 
-  // ================= PARTICLES =================
-  const canvas = document.getElementById('particles');
 
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeNavigation();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          navMenu.classList.contains("open") &&
+          !navMenu.contains(event.target) &&
+          !navToggle.contains(event.target)
+        ) {
+
+          closeNavigation();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+     ACTIVE NAVIGATION LINK
+  ========================================================= */
+
+  const sections =
+    document.querySelectorAll(
+      "main section[id]"
+    );
+
+
+  if (
+    "IntersectionObserver" in window
+  ) {
+
+    const sectionObserver =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach(
+            (entry) => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                const sectionId =
+                  entry.target.id;
+
+
+                navLinks.forEach(
+                  (link) => {
+
+                    link.classList.toggle(
+                      "active",
+                      link.getAttribute("href") ===
+                        `#${sectionId}`
+                    );
+
+                  }
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          rootMargin:
+            "-35% 0px -55% 0px",
+
+          threshold: 0
+        }
+      );
+
+
+    sections.forEach(
+      (section) => {
+
+        sectionObserver.observe(section);
+
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+     VANILLA TILT
+  ========================================================= */
+
+  const isTouchDevice =
+    window.matchMedia(
+      "(hover: none)"
+    ).matches;
+
+
+  if (
+    typeof VanillaTilt !== "undefined" &&
+    !isTouchDevice &&
+    !prefersReducedMotion
+  ) {
+
+    VanillaTilt.init(
+      document.querySelectorAll(
+        "[data-tilt]"
+      ),
+      {
+        max: 5,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.12
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+     PARTICLE BACKGROUND
+  ========================================================= */
+
+  const canvas =
+    document.getElementById("particles");
+
+
+  if (
+    canvas &&
+    !prefersReducedMotion
+  ) {
+
+    const context =
+      canvas.getContext("2d");
+
+
+    let particles = [];
+
+
+    let animationFrameId;
+
+
+    let isPageVisible = true;
+
 
     function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+
+      canvas.width =
+        window.innerWidth;
+
+
+      canvas.height =
+        window.innerHeight;
+
+
+      createParticles();
+
     }
 
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
 
-    const particles = Array.from({ length: 100 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: 1 + Math.random() * 2,
-      speedX: (Math.random() - 0.5) * 0.5,
-      speedY: (Math.random() - 0.5) * 0.5,
-    }));
+    function createParticles() {
+
+      const particleCount =
+        window.innerWidth < 768
+          ? 35
+          : 75;
+
+
+      particles = [];
+
+
+      for (
+        let i = 0;
+        i < particleCount;
+        i++
+      ) {
+
+        particles.push({
+          x:
+            Math.random() *
+            canvas.width,
+
+          y:
+            Math.random() *
+            canvas.height,
+
+          size:
+            Math.random() * 1.8 + 0.5,
+
+          speedX:
+            (Math.random() - 0.5) *
+            0.35,
+
+          speedY:
+            (Math.random() - 0.5) *
+            0.35,
+
+          opacity:
+            Math.random() * 0.5 + 0.15
+        });
+
+      }
+
+    }
+
 
     function drawParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach(p => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 247, 255, 0.18)';
-        ctx.fill();
-      });
-
-      requestAnimationFrame(drawParticles);
-    }
-
-    drawParticles();
-  }
-
-  // ================= CONTACT FORM =================
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
-
-  if (form && status) {
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-
-      const name = document.getElementById('name')?.value.trim();
-      const email = document.getElementById('email')?.value.trim();
-      const message = document.getElementById('message')?.value.trim();
-
-      if (!name || !email || !message) {
-        status.textContent = 'Please fill in all fields before sending.';
-        status.style.color = '#ff6b6b';
+      if (!isPageVisible) {
         return;
       }
 
-      status.textContent = 'Message sent successfully!';
-      status.style.color = '#a8f7cc';
 
-      form.reset();
-    });
+      context.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+
+      particles.forEach(
+        (particle) => {
+
+          particle.x +=
+            particle.speedX;
+
+
+          particle.y +=
+            particle.speedY;
+
+
+          if (
+            particle.x < 0 ||
+            particle.x > canvas.width
+          ) {
+
+            particle.speedX *= -1;
+
+          }
+
+
+          if (
+            particle.y < 0 ||
+            particle.y > canvas.height
+          ) {
+
+            particle.speedY *= -1;
+
+          }
+
+
+          context.beginPath();
+
+
+          context.arc(
+            particle.x,
+            particle.y,
+            particle.size,
+            0,
+            Math.PI * 2
+          );
+
+
+          context.fillStyle =
+            `rgba(
+              0,
+              247,
+              255,
+              ${particle.opacity}
+            )`;
+
+
+          context.fill();
+
+        }
+      );
+
+
+      animationFrameId =
+        requestAnimationFrame(
+          drawParticles
+        );
+
+    }
+
+
+    function handleVisibilityChange() {
+
+      isPageVisible =
+        !document.hidden;
+
+
+      if (isPageVisible) {
+
+        cancelAnimationFrame(
+          animationFrameId
+        );
+
+
+        drawParticles();
+
+      }
+
+    }
+
+
+    window.addEventListener(
+      "resize",
+      resizeCanvas
+    );
+
+
+    document.addEventListener(
+      "visibilitychange",
+      handleVisibilityChange
+    );
+
+
+    resizeCanvas();
+
+
+    drawParticles();
+
   }
 
-  // ================= VANILLA TILT =================
-  if (typeof VanillaTilt !== "undefined") {
-    VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
-      max: 12,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.2,
+
+  /* =========================================================
+     EMAILJS CONTACT FORM
+  ========================================================= */
+
+  const contactForm =
+    document.getElementById(
+      "contact-form"
+    );
+
+
+  const formStatus =
+    document.getElementById(
+      "form-status"
+    );
+
+
+  const submitButton =
+    document.getElementById(
+      "submit-button"
+    );
+
+
+  if (
+    typeof emailjs !== "undefined" &&
+    EMAILJS_PUBLIC_KEY !==
+      "YOUR_EMAILJS_PUBLIC_KEY"
+  ) {
+
+    emailjs.init({
+      publicKey:
+        EMAILJS_PUBLIC_KEY
     });
+
+  }
+
+
+  if (contactForm) {
+
+    contactForm.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
+
+
+        if (
+          !formStatus ||
+          !submitButton
+        ) {
+          return;
+        }
+
+
+        /* -----------------------------------------
+           CHECK EMAILJS CONFIGURATION
+        ----------------------------------------- */
+
+        if (
+          EMAILJS_PUBLIC_KEY ===
+            "YOUR_EMAILJS_PUBLIC_KEY" ||
+
+          EMAILJS_SERVICE_ID ===
+            "YOUR_EMAILJS_SERVICE_ID" ||
+
+          EMAILJS_TEMPLATE_ID ===
+            "YOUR_EMAILJS_TEMPLATE_ID"
+        ) {
+
+          formStatus.textContent =
+            "Contact form setup is not complete yet.";
+
+          formStatus.className =
+            "form-status error";
+
+          return;
+        }
+
+
+        if (
+          typeof emailjs ===
+          "undefined"
+        ) {
+
+          formStatus.textContent =
+            "Email service could not be loaded. Please try again later.";
+
+          formStatus.className =
+            "form-status error";
+
+          return;
+        }
+
+
+        const originalButtonText =
+          submitButton.textContent;
+
+
+        submitButton.disabled =
+          true;
+
+
+        submitButton.textContent =
+          "Sending...";
+
+
+        formStatus.textContent =
+          "";
+
+
+        formStatus.className =
+          "form-status";
+
+
+        try {
+
+          await emailjs.sendForm(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            contactForm
+          );
+
+
+          formStatus.textContent =
+            "Message sent successfully! I will get back to you soon.";
+
+          formStatus.className =
+            "form-status success";
+
+
+          contactForm.reset();
+
+
+        } catch (error) {
+
+          console.error(
+            "EmailJS Error:",
+            error
+          );
+
+
+          formStatus.textContent =
+            "Something went wrong. Please try again or contact me directly by email.";
+
+          formStatus.className =
+            "form-status error";
+
+        } finally {
+
+          submitButton.disabled =
+            false;
+
+
+          submitButton.textContent =
+            originalButtonText;
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+     CURRENT YEAR
+  ========================================================= */
+
+  const currentYear =
+    document.getElementById(
+      "current-year"
+    );
+
+
+  if (currentYear) {
+
+    currentYear.textContent =
+      new Date().getFullYear();
+
   }
 
 });
